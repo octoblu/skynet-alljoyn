@@ -14,7 +14,8 @@
     "alljoyn",
     "octoblu",
     "skynet",
-    "iot"
+    "iot",
+    "skynet-plugin"
   ],
   "author": "Blaine Bublitz <blaine@iceddev.com> (http://iceddev.com/)",
   "license": "MIT",
