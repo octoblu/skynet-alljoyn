@@ -1,6 +1,6 @@
 {
   "name": "skynet-alljoyn",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Gateblu plugin for alljoyn",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/octoblu/skynet-alljoyn",
   "dependencies": {
-    "alljoyn": "0.0.2"
+    "alljoyn": "^0.1.1",
+    "lodash": "^2.4.1"
   }
 }
