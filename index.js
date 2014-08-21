@@ -56,6 +56,9 @@ function Plugin(messenger, options){
     console.log("BindSessionPort " + bus.bindSessionPort(27, portListener));
   }
 
+
+  var notificationService = this.notificationService = alljoyn.NotificationService("skynet-alljoyn", bus, 0);
+
   inter.addSignal(this.options.signalMemberName, "s", "msg");
   var messageObject = this.messageObject = alljoyn.BusObject(this.options.messageServiceName);
   messageObject.addInterface(inter);
@@ -97,8 +100,8 @@ Plugin.prototype.onMessage = function(data, callback){
     });
   }
 
-  if(data.payload.method === 'notify'){
-    // TODO: send notification
+  if(data.payload.method === 'notify' && data.payload.message){
+    self.notificationService.notify(data.payload.message, 300);
   }
 
   if(callback){
