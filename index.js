@@ -32,6 +32,8 @@ function Plugin(messenger, options){
   bus.createInterface(this.options.interfaceName, inter);
   bus.registerBusListener(listener);
 
+  bus.start();
+
   function onAcceptSessionJoiner(port, joiner){
     console.log("AcceptSessionJoiner", port, joiner);
     //TODO possibly be more selective
@@ -43,6 +45,8 @@ function Plugin(messenger, options){
     console.log("SessionJoined", port, sId, joiner);
   }
 
+  bus.connect();
+
   if(this.options.advertisedName){
 
     var portListener = alljoyn.SessionPortListener(onAcceptSessionJoiner, onSessionJoined);
@@ -51,8 +55,6 @@ function Plugin(messenger, options){
     console.log("AdvertiseName " + bus.advertiseName(fullName));
     console.log("BindSessionPort " + bus.bindSessionPort(27, portListener));
   }
-
-  bus.start();
 
   inter.addSignal(this.options.signalMemberName, "s", "msg");
   var messageObject = this.messageObject = alljoyn.BusObject(this.options.messageServiceName);
@@ -73,8 +75,6 @@ function Plugin(messenger, options){
   }
 
   bus.registerBusObject(messageObject);
-
-  bus.connect();
 
   if(this.options.findAdvertisedName){
     bus.findAdvertisedName(this.options.findAdvertisedName);
