@@ -132,29 +132,34 @@ var optionsSchema = {
   properties: {
     advertisedName: {
       type: 'string',
-      required: false
+      required: true,
+      default: "test"
     },
     interfaceName: {
       type: 'string',
-      required: true
+      required: true,
+      default: "org.alljoyn.bus.samples.chat",
     },
     findAdvertisedName: {
       type: 'string',
-      required: false
+      required: true,
+      default: "org.alljoyn.bus.samples.chat"
     },
     signalMemberName: {
       type: 'string',
-      required: true
+      required: true,
+      default: "Chat",
     },
     messageServiceName: {
       type: 'string',
-      required: true
+      required: true,
+      default: "/chatService"
     },
     relayUuid: {
       type: 'string',
-      required: false
+      required: true,
+      default: "*",
     }
-
   }
 };
 
