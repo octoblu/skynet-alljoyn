@@ -119,10 +119,12 @@ var messageSchema = {
   properties: {
     method: {
       type: 'string',
-      required: true
+      required: true,
+      default: 'notify'
     },
     message: {
-      type: 'string'
+      type: 'string',
+      required: true
     }
   }
 };

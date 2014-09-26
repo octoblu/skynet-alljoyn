@@ -1,6 +1,6 @@
 {
   "name": "skynet-alljoyn",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "description": "Gateblu plugin for AllJoyn",
   "main": "index.js",
   "scripts": {
